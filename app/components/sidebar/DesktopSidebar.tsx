@@ -1,22 +1,21 @@
-'use client'
+"use client";
 
 import useRoutes from "@/app/hooks/useRoutes";
 import { useState } from "react";
 import DesktopItem from "./DesktopItem";
 import { User } from "@prisma/client";
 
-interface DesktopSidebarProps{
-    currentUser: User
+interface DesktopSidebarProps {
+  currentUser: User;
 }
 
-const DesktopSidebar: React.FC<DesktopSidebarProps> = ({
-    currentUser
-}) =>{
-    const routes = useRoutes();
-    const [isOpen, setIsOpen] = useState(false)
+const DesktopSidebar: React.FC<DesktopSidebarProps> = ({ currentUser }) => {
+  const routes = useRoutes();
+  const [isOpen, setIsOpen] = useState(false);
 
-    return (
-        <div className="
+  return (
+    <div
+      className="
         hidden
         lg:fixed
         lg:inset-y-0
@@ -31,35 +30,43 @@ const DesktopSidebar: React.FC<DesktopSidebarProps> = ({
         lg:flex
         lg:flex-col
         justify-between
-        ">
-           <nav className="
+        "
+    >
+      <nav
+        className="
            mt-4
            flex
            flx-col
            justify-between"
-           >
-            <ul
-            role="list"
-            className="
+      >
+        <ul
+          role="list"
+          className="
             flex
             flex-col
             items-center
             space-y-1
-            ">
-                {routes.map((item)=> (
-                    <DesktopItem 
-                    key={item.label}
-                    href={item.href}
-                    label={item.label}
-                    icon={item.icon}
-                    active={item.active}
-                    onClick={item.onClick}
-                    />
-                ))}
-            </ul>
-           </nav>
-        </div>
-    )
-}
+            "
+        >
+          {routes.map((item) => (
+            <DesktopItem
+              key={item.label}
+              href={item.href}
+              label={item.label}
+              icon={item.icon}
+              active={item.active}
+              onClick={item.onClick}
+            />
+          ))}
+        </ul>
+      </nav>
+      <nav
+      className="
+      ">
+
+      </nav>
+    </div>
+  );
+};
 
 export default DesktopSidebar;
