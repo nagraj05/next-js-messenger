@@ -1,21 +1,20 @@
-'use client'
+"use client";
 
 import useConversation from "@/app/hooks/useConversation";
 import useRoutes from "@/app/hooks/useRoutes";
 import MobileItem from "./MobileItem";
 
 const MobileFooter = () => {
-    const routes = useRoutes()
-    const { isOpen} = useConversation()
+  const routes = useRoutes();
+  const { isOpen } = useConversation();
 
-    if (isOpen) {
-        return null;
-    }
+  if (isOpen) {
+    return null;
+  }
 
-
-    return (
-        <div 
-        className="
+  return (
+    <div
+      className="
         fixed
         justify-between
         w-full
@@ -27,17 +26,18 @@ const MobileFooter = () => {
         border-t-[1px]
         lg:hidden
         "
-        >
-            {routes.map((route) =>(
-                <MobileItem 
-                key={route.label}
-                href={route.href}
-                icon={route.icon}
-                active={route.active}
-                onClick={route.onClick} />
-            ))}   
-        </div>
-    )
-}
+    >
+      {routes.map((route) => (
+        <MobileItem
+          key={route.label}
+          href={route.href}
+          icon={route.icon}
+          active={route.active}
+          onClick={route.onClick}
+        />
+      ))}
+    </div>
+  );
+};
 
 export default MobileFooter;
