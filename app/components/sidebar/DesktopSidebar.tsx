@@ -37,7 +37,7 @@ const DesktopSidebar: React.FC<DesktopSidebarProps> = ({ currentUser }) => {
         className="
            mt-4
            flex
-           flx-col
+           flex-col
            justify-between"
       >
         <ul
