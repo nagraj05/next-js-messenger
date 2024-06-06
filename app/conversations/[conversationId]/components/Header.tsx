@@ -27,11 +27,11 @@ const Header: React.FC<HeaderProps> = ({ conversation }) => {
   }, [conversation]);
   return (
     <>
-    <ProfileDrawer 
+      <ProfileDrawer
         data={conversation}
         isOpen={drawerOpen}
-        onClose={()=>setDrawerOpen(false)}
-    />
+        onClose={() => setDrawerOpen(false)}
+      />
       <div
         className="
         bg-white
@@ -59,9 +59,9 @@ const Header: React.FC<HeaderProps> = ({ conversation }) => {
           >
             <HiChevronLeft size={32} />
           </Link>
-          {conversation.isGroup ?(
+          {conversation.isGroup ? (
             <AvatarGroup users={conversation.users} />
-          ):(
+          ) : (
             <Avatar user={otherUser} />
           )}
           <div className="flex flex-col">
@@ -79,7 +79,7 @@ const Header: React.FC<HeaderProps> = ({ conversation }) => {
         </div>
         <HiEllipsisHorizontal
           size={32}
-          onClick={() =>setDrawerOpen(true)}
+          onClick={() => setDrawerOpen(true)}
           className="text-sky-500
       cursor-pointer
       hover:text-sky-600"
